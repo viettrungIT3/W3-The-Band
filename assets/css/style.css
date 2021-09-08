@@ -1,113 +1,9 @@
-/* Reset CSS */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-/* 
-1. Từ ngoài vào trong
-2. Từ trên xuống dưới
-3. Từ tổng quan đến chi tiết.
-*/
-
-/* 
-1. Vị trí
-2. Kích thước (width. height)
-3. Màu sác
-4. Kiểu dáng(kiểu chữ, hình tròn, vuông,...)
-*/
-
-/* Common  */
-.clear {
-    clear: both;    /* The element is pushed below both left and right floated elements */
-}
-
-.text-while {
-    color: #fff !important;
-}
-
-.text-center {
-    text-align: center !important;
-}
-
-.pull-right {
-    float: right !important;
-}
-
-.img {
-    width: 100%;
-}
-
-.btn{
-    margin-top: 15px;
-    padding: 10px 16px;
-    display: block;
-    color: #fff;
-    background-color: #000;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-}
-.btn:hover {
-    color: #000;
-    background-color: #ccc;
-}
-
-.mt-8 {
-    margin-top: 8px !important;
-}
-
-.mt-16 {
-    margin-top: 16px !important;
-}
-
-.padding-64 {
-    padding-top: 64px !important;
-    padding-bottom: 64px !important;
-}
-
-.padding-32 {
-    padding-top: 32px!important;
-    padding-bottom: 32px!important;
-}
-
-.row {
-    margin-left: -8px;
-    margin-right: -8px;
-}
-
-.row::after {
-    content: "";
-    display: block;
-    clear: both;
-}
-
-.col {
-    float: left;
-    padding-left: 8px;
-    padding-right: 8px;
-}
-
-.col-full {
-    width: 100%;
-}
-
-.col-half {
-    width: 50%;
-}
-
-.col-third {
-    width: 33.3333333%;
-}
 
 /* main  */
+
+#main {
+    overflow: hidden;
+}
 #header {
     position: fixed;
     top: 0;
@@ -175,15 +71,38 @@ html {
     line-height: 38px;
 }
 
-#header .icon {
+
+/* Header btn  */
+#header .menu-btn ,
+#header .search-btn {
     color: #fff;
     font-size: 24px;
     padding: 0 16px;
     line-height: 46px;
     cursor: pointer;
 }
-#header .icon:hover {
+
+/* #header .search-icon ,
+#header .menu-icon {
+    color: #fff;
+    font-size: 20px;
+    line-height: 46px;
+} */
+#header .search-btn:hover {
     background-color: #f44336;
+}
+
+#header .menu-btn {
+    color: #000;
+    background-color: #ccc;
+    height: 46px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#header .menu-btn {
+    display: none;
 }
 
 #slider {
@@ -209,14 +128,18 @@ html {
 #slider .text-content .text-description {
     font-size: 15px;
     margin-top: 25px;
+    text-shadow: 0 0 1px #000;
 }
 /* End: slider  */
 
 /* Contents  */
 #content .content-section {
     width: 800px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 /* Heading   */
@@ -297,11 +220,13 @@ html {
 }
 
 /* Places  */
-/* .places-list {
-    margin-top: 32px;
-    margin-bottom: 48px;
-} */
+.places-list {
+    padding-top: 16px !important;
+}
 
+.places-list .place-item {
+    padding-top: 16px;
+}
 .places-list .place-item img.place-img {
     /* vertical-align: middle; */   
     /* sets the vertical alignment of an element. */
@@ -335,6 +260,16 @@ html {
     font-size: 18px;
     line-height: 1.75;
 }
+
+.contact-info a {
+    color: #101aef;
+    opacity: 0.6;
+}
+
+.contact-info a:hover {
+    opacity: 1;
+}
+
 .contact-info i[class*="fa-"]{
     width: 30px;
     display: inline-block;

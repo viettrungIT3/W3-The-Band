@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>W3 Band</title>
     <link rel="icon" href="assets/img/demo.png" type="image/gif" sizes="16x16">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/app.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
         integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 </head>
@@ -33,8 +33,11 @@
             <!-- End: Nav  -->
 
             <!-- Begin: Search  -->
-            <div class="icon">
-                <i class="fa fa-search"></i>
+            <div class="search-btn">
+                <i class="search-icon fa fa-search"></i>
+            </div>
+            <div id="mobile-menu" class="menu-btn">
+                <i class="menu-icon fa fa-bars"></i>
             </div>
             <!-- End: Search  -->
         </div>
@@ -65,15 +68,15 @@
 
                 <!-- Member  -->
                 <div class="members-list">
-                    <div class="col col-third text-center">
+                    <div class="member-item col col-third text-center">
                         <p class="member-name">Name</p>
                         <img src="./assets/img/band/band-member.jpg" alt="Name" class="member-img">
                     </div>
-                    <div class="col col-third text-center">
+                    <div class="member-item col col-third text-center">
                         <p class="member-name">Name</p>
                         <img src="./assets/img/band/band-member.jpg" alt="Name" class="member-img">
                     </div>
-                    <div class="col col-third text-center">
+                    <div class="member-item col col-third text-center">
                         <p class="member-name">Name</p>
                         <img src="./assets/img/band/band-member.jpg" alt="Name" class="member-img">
                     </div>
@@ -132,14 +135,14 @@
                 <p class="section-sub-heading">Fan? Drop a note!</p>
 
                 <div class="row contact-content padding-32">
-                    <div class="col col-half contact-info">
+                    <div class="col col-half contact-full contact-info">
                         <p><i class="fa fa-map-marker-alt"></i> Chicago, US</p>
-                        <p><i class="fa fa-phone"></i> Phone: +00 151515</p>
-                        <p><i class="fa fa-envelope"></i> Email: mail@mail.com</p>
+                        <p><i class="fa fa-phone"></i> Phone: <a href="tel:+00 151515">+00 151515</a></p>
+                        <p><i class="fa fa-envelope"></i> Email: <a href="mailto:mail@mail.com">mail@mail.com</a></p>
                     </div>
 
                     <!-- Begin: contact form -->
-                    <div class="col col-half contact-form">
+                    <div class="col col-half contact-full contact-form">
                         <form action="">
                             <div class="row">
                                 <div class="col col-half">
@@ -157,7 +160,7 @@
                                 </div>
                             </div>
 
-                            <input class="pull-right btn mt-16" type="submit" value="SEND">
+                            <input class="pull-right btn mt-16 s-full-width" type="submit" value="SEND">
                         </form>
                     </div>
                     <!-- End: contact form -->
@@ -226,6 +229,43 @@
 
         </div>
     </div>
+
+    <script>
+        const header = document.getElementById('header');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Lấy chiều cao của header
+        const headerHeight = header.clientHeight;
+        
+        // Đóng/mở mobile menu 
+        mobileMenu.onclick = function() {
+            const isClose = header.clientHeight === headerHeight;
+
+            if (isClose) {
+                header.style.height = 'auto';
+            } else {
+                header.style.height = null;
+            }
+        }
+
+        // Tự động đóng khi chọn menu
+        const menuItems = document.querySelectorAll('#nav li a[href*="#"]');
+        // console.log(menuItems);
+        for (menuItem of menuItems) {
+
+            menuItem.onclick = function (event) {
+                const isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav');
+                if (isParentMenu) {
+
+                    event.preventDefault();
+                }
+                else {
+                    header.style.height = null;
+                }
+            }
+        }
+
+    </script>
 
     <script>
         const buyBtns = document.querySelectorAll('.js-buy-ticket');
