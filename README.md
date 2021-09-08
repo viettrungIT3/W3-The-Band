@@ -1,3 +1,8 @@
+### Project: The Band
+### Author: F8
+### Created: 03/09/2021
+
+
 ## Dự án: https://www.w3schools.com/w3css/tryw3css_templates_band.htm
 1. Phân tích
 2. Dụng base
